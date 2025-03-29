@@ -1,14 +1,12 @@
-// filepath: /my-react-app/my-react-app/src/pages/index.jsx
 import React from 'react';
-import App from '../components/App';
 
-const HomePage = () => {
+const MainPage = () => {
     return (
         <div>
-            <h1>Welcome to My React App</h1>
-            <App />
+            <h1>Welcome to the Main Page</h1>
+            <p>This is the content of your React app.</p>
         </div>
     );
 };
 
-export default HomePage;
+export default MainPage;
