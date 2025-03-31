@@ -3,16 +3,16 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [data, setData] = useState({
     message: "",
-    keys: ""
+    routeDetails: ""
   });
 
   useEffect(() => {
-    fetch("/api/message")
+    fetch("/api/message?test=Hi")
       .then((response) => response.json())
       .then((data) => {
         setData({
           message: data.message,
-          keys: data.keys
+          routeDetails: data.routeDetails
         })
       });
   }, []);
@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <h1>{data.message}</h1>
-      <p>Keys: {data.keys}</p>
+      <p>{data.routeDetails}</p>
     </div>
   );
 }

@@ -11,7 +11,7 @@ app.get("/api/message", (req, res) => {
     
     res.json({
         message: `Hello from Node.js backend!`,
-        keys: "nothing"
+        routeDetails: "<h4>Biscuit boi</h4>"
     });
 });
 
