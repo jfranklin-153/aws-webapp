@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { NewApp } from "./components/Fun.jsx"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact, { ContactMe } from "./pages/Contact";
 
-function App() {
+const App = () => {
   const [data, setData] = useState({
     message: "",
     routeDetails: ""
@@ -12,17 +16,22 @@ function App() {
       .then((data) => {
         setData({
           message: data.message,
-          routeDetails: data.routeDetails
         })
       });
   }, []);
 
   return (
-    <div>
-      <h1>{data.message}</h1>
-      <p>{data.routeDetails}</p>
-    </div>
+      <div>
+        <p>Data message: {data.message}</p>
+        <NewApp/>
+        <BrowserRouter>
+          <Routes>
+            <Route path="home" element={<Home />} />
+            <Route path="contact" element={<><Contact /><ContactMe/></>}/>
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
-export default App
+export default App;
