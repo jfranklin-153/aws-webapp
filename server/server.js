@@ -1,7 +1,14 @@
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
+const fs = require("fs");
+const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express();
+// Get the config
+const rawConfig = fs.readFileSync("./config/mongodb.json");
+const config = JSON.parse(rawConfig);
+// Mongodb connection uri
+const mongoDbUri = config.connectionString;
 
 app.use(cors());
 app.use(express.json());
