@@ -8,12 +8,16 @@ app.use(express.json());
 
 // Example API endpoint
 app.get("/api/message", (req, res) => {
-    
     res.json({
-        message: `Hello from Node.js backend!`,
-        routeDetails: "<h4>Biscuit boi</h4>"
+        message: `Hello from Node.js backend!`
     });
 });
+
+app.post("/api/login", (req, res) => {
+  res.json({
+    message: `This is the login form -- to be created`
+  })
+})
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
