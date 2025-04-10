@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NewApp } from "./components/Fun.jsx"
+import { NavBar } from "./components/Fun.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact, { ContactMe } from "./pages/Contact";
@@ -11,19 +11,21 @@ const App = () => {
   });
 
   useEffect(() => {
-    fetch("/api/message?test=Hi")
+    fetch("/api/message")
       .then((response) => response.json())
       .then((data) => {
         setData({
           message: data.message,
+          data: data.data
         })
       });
   }, []);
 
   return (
       <div>
+        <NavBar/>
         <p>Data message: {data.message}</p>
-        <NewApp/>
+        <p>Data: {data.data}</p>
         <BrowserRouter>
           <Routes>
             <Route path="home" element={<Home />} />
