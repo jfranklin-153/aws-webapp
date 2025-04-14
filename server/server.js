@@ -3,18 +3,16 @@ const express = require("express");
 const dotenv = require("dotenv");
 const compression = require("compression");
 const { MongoClient } = require("mongodb");
-
 // use express for the app
 const app = express();
 
 // get environment variables
 dotenv.config();
+const PORT = process.env.PORT || 8000;
 
 // MongoDB connection setup
 const mongoDbUri = process.env.MONGODB_CONNECTION_STRING;
 const client = new MongoClient(mongoDbUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     maxPoolSize: 10
 });
 
