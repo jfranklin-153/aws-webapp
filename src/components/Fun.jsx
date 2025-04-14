@@ -10,10 +10,10 @@ const useFetchMovies = () => {
   useEffect(() => {
     fetch("/api/movies")
       .then((response) => {
-        console.log(response.status)
+        console.log(response.text)
         return response.json()})
       .then((data) => {
-        // Ensure data is an array
+        console.log("Fetched data:", data); // Debugging
         setData(Array.isArray(data) ? data : []);
         setLoading(false);
       })
