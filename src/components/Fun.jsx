@@ -9,6 +9,26 @@ export function NewApp() {
     );
   }
 
+const DropdownOptions = () => {
+  const [data, setData] = useState({
+    option: ""
+  });
+  useEffect(() => {
+    fetch("/api/movies").then((response) => response.json()).then(
+      (data) => {
+        setData({
+          option: data.plot
+        });
+      }
+    )
+  }, []);
+
+  return (
+    <li><a class="dropdown-item" href="#">{this.data.plot}</a></li>
+  )
+  
+}
+
 export const NavBar = () => {
   return(
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -30,10 +50,7 @@ export const NavBar = () => {
                 Dropdown
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"/></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                
               </ul>
             </li>
             <li class="nav-item">
