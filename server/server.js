@@ -26,8 +26,11 @@ app.use(compression());
 
 // Middleware to ensure MongoDB connection is established
 async function ensureDbConnection(req, res, next) {
+    // checks for topology and connection
+    // if one of the two doesn't exist, connect to the database
     if (!client.topology || !client.topology.isConnected()) {
         try {
+            // asynch connect to the database
             await client.connect();
             console.log("Connected to MongoDB");
             db = client.db('sample_mflix');
