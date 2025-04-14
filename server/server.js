@@ -58,6 +58,7 @@ app.get("/api/health", (req, res) => {
 let cachedMovieData = null;
 let cacheTimeout = null;
 
+// handle get requests to the movies endpoint
 app.get("/api/movies", asyncHandler(async (req, res) => {
     if (!cachedMovieData) {
         console.log("Fetching")
