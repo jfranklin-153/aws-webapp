@@ -24,7 +24,9 @@ const DropdownOptions = () => {
   }, []);
 
   return (
+    <div>
     <li><a class="dropdown-item" href="#">{this.data.plot}</a></li>
+    </div>
   )
   
 }
@@ -50,7 +52,7 @@ export const NavBar = () => {
                 Dropdown
               </a>
               <ul class="dropdown-menu">
-                
+                <DropdownOptions/>
               </ul>
             </li>
             <li class="nav-item">
