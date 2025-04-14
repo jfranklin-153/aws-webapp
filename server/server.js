@@ -57,6 +57,7 @@ let cacheTimeout = null;
 
 app.get("/api/movies", asyncHandler(async (req, res) => {
     if (!cachedMovieData) {
+        console.log("Fetching")
         const data = await moviesCollection.findOne();
         cachedMovieData = {
             message: "Hello from Node.js backend!",

@@ -11,7 +11,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    fetch("/api/message")
+    fetch("/api/movies")
       .then((response) => response.json())
       .then((data) => {
         setData({
