@@ -59,7 +59,7 @@ export const NavBar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Navbar
+          Movies Page
         </a>
         <button
           className="navbar-toggler"
@@ -75,13 +75,8 @@ export const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/home">
                 Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
               </a>
             </li>
             <li className="nav-item dropdown">
@@ -92,7 +87,7 @@ export const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Pick a movie
               </a>
               <ul className="dropdown-menu">
                 {loading ? (
@@ -105,11 +100,6 @@ export const NavBar = () => {
                   <DropdownOptions options={movies} />
                 )}
               </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
             </li>
           </ul>
           <form className="d-flex" role="search">

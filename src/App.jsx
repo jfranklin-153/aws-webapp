@@ -3,11 +3,14 @@ import { NavBar } from "./components/Fun.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact, { ContactMe } from "./pages/Contact";
+import "./App.css"
 
 const App = () => {
     return (
       <div>
-        <NavBar/>
+        <div class="navbar-container">
+          <NavBar/>
+        </div>
         <BrowserRouter>
           <Routes>
             <Route path="home" element={<Home />} />
