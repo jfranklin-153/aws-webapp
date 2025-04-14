@@ -1,22 +1,13 @@
 const cors = require("cors");
 const express = require("express");
-const fs = require("fs");
+const dotenv = require("dotenv");
 const { MongoClient } = require("mongodb");
-
+// use express for the app
 const app = express();
-
-// Get the config - add error handling
-let config;
-try {
-    const rawConfig = fs.readFileSync("./config/mongodb.json");
-    config = JSON.parse(rawConfig);
-} catch (error) {
-    console.error("Failed to read config:", error);
-    process.exit(1);
-}
-
+// get environment variables
+dotenv.config()
 // MongoDB connection setup
-const mongoDbUri = config.connectionString;
+const mongoDbUri = process.env.MONGODB_CONNECTION_STRING
 // New code (MongoDB Driver 4.0+)
 const client = new MongoClient(mongoDbUri);
 
