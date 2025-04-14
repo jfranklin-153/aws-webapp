@@ -14,7 +14,7 @@ const useFetchMovies = () => {
         return response.json()})
       .then((data) => {
         console.log("Fetched data:", data); // Debugging
-        setData(Array.isArray(data) ? data : []);
+        setData(Array.isArray(data.data) ? data : []);
         setLoading(false);
       })
       .catch((error) => {
@@ -28,7 +28,7 @@ const useFetchMovies = () => {
 
 // DropdownOptions component
 const DropdownOptions = ({ options }) => {
-  if (!Array.isArray(options)) {
+  if (!Array.isArray(options.data)) {
     return (
       <li>
         <a className="dropdown-item" href="#">
@@ -40,10 +40,10 @@ const DropdownOptions = ({ options }) => {
 
   return (
     <>
-      {options.map((option, index) => (
+      {options.data.map((option, index) => (
         <li key={index}>
           <a className="dropdown-item" href="#">
-            {option.plot || "No plot available"}
+            {typeof option === "string" ? option : "No plot available"}
           </a>
         </li>
       ))}

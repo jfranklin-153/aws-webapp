@@ -61,8 +61,7 @@ app.get("/api/movies", asyncHandler(async (req, res) => {
         const data = await moviesCollection.findOne();
         cachedMovieData = {
             message: "Hello from Node.js backend!",
-            data: 
-                [{plot: data.plot}] || []
+            data: [data.title] || []
         };
         // Invalidate cache after 5 minutes
         cacheTimeout = setTimeout(() => {
